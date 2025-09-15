@@ -1,0 +1,103 @@
+﻿@model List<CustomerPetshop.Models.CartItemDto>
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    decimal subtotal = Model.Sum(x => x.Price * x.Quantity);
+}
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/inner-page-banner_img.png" alt="Pawly">
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid">
+                <h1 class="sisf-m-title entry-title">Sepet</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sisf-page-section section">
+    <div class="sisf-grid sisf-layout--template">
+        <div class="sisf-grid-inner container">
+            <div class="sisf--cart">
+                <div class="cart-form-table">
+                    <table class="shop_table cart_table">
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail"></th>
+                                <th class="product-name">Ürün</th>
+                                <th class="product-price">Fiyat</th>
+                                <th class="product-quantity">Miktar</th>
+                                <th class="product-subtotal">Birim Fiyat</th>
+                                <th class="product-remove"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="cart_item sisf-product-type-product">
+                                    <td class="product-thumbnail">
+                                        <a href="/Product/Details/@item.ProductId">
+                                            <img src="@item.ImageUrl" class="image-fluid" alt="@item.Name">
+                                        </a>
+                                    </td>
+                                    <td class="product-name" data-title="Product">
+                                        <a href="/Product/Details/@item.ProductId">@item.Name</a>
+                                    </td>
+                                    <td class="product-price" data-title="Price">
+                                        <span class="price-amount">
+                                            <span class="woocommerce-Price-currencySymbol">₺</span>@item.Price
+                                        </span>
+                                    </td>
+                                    <td class="product-quantity" data-title="Quantity">
+                                        <form asp-controller="CustomerCart" asp-action="UpdateQuantity" method="post" style="display:flex; gap:5px;">
+                                            <input type="hidden" name="productId" value="@item.ProductId" />
+                                            <input type="number" name="quantity" value="@item.Quantity" min="1" class="form-control" style="width:70px;" />
+                                            <button type="submit" class="btn btn-sm btn-primary rounded-circle">Güncelle</button>
+                                        </form>
+                                    </td>
+                                    <td class="product-subtotal">
+                                        <span class="price-amount">
+                                            <span class="price-currencysymbol">₺</span>@(item.Price * item.Quantity)
+                                        </span>
+                                    </td>
+                                    <td class="product-remove">
+                                        <a href="/CustomerCart/RemoveFromCart?productId=@item.ProductId" class="remove">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    <div class="cart-collaterals">
+                        <div class="cart_totals">
+                            <h2>Sepet Tutarı</h2>
+                            <table class="shop_table">
+                                <tbody>
+                                    <tr class="order-total">
+                                        <th>Toplam</th>
+                                        <td data-title="Total">
+                                            <strong>
+                                                <span class="price-amount">
+                                                    <span class="price-currencysymbol">₺</span>@subtotal
+                                                </span>
+                                            </strong>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="proceed-to-checkout text-center mt-3">
+                                <a href="/Checkout/Index" class="checkout-button button sisf-button sisf-layout--outlined">Sipariş Oluştur</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,86 @@
+﻿@model CustomerPetshop.Models.LoginViewModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giriş Yap - PetShop</title>
+    <link href="~/css/customerloginstyle.css" rel="stylesheet" />
+  
+</head>
+<body>
+    <div class="container">
+        <div class="login-wrapper">
+            <div class="login-header">
+                <div class="logo">
+                    <div class="pet-icon">🐾</div>
+                    <h1>PetShop</h1>
+                </div>
+                <p class="subtitle">Evcil dostlarınız için her şey</p>
+            </div>
+
+            <div class="login-form-container">
+                <h2>Hesabınıza Giriş Yapın</h2>
+                <form class="login-form" id="loginForm" method="post">
+                    <div class="form-group">
+                        <label for="userName">Kullanıcı Adı</label>
+                        <input type="text" id="email" name="userName" required>
+                        <span class="input-icon">📧</span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Şifre</label>
+                        <input type="password" id="password" name="password" required>
+                        <span class="input-icon">🔒</span>
+                        <button type="button" class="toggle-password" onclick="togglePassword()">👁️</button>
+                    </div>
+
+                  
+
+                    <button type="submit" class="login-btn">Giriş Yap</button>
+                </form>
+
+                <div class="divider">
+                    <span>veya</span>
+                </div>
+
+              
+
+                <div class="register-link">
+                    <p>Hesabınız yok mu? <a href="/CustomerLogin/SingUp">Kayıt Olun</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pet-illustration">
+            <div class="pet-images">
+                <div class="pet-item">🐕</div>
+                <div class="pet-item">🐱</div>
+                <div class="pet-item">🐦</div>
+                <div class="pet-item">🐹</div>
+            </div>
+            <div class="features">
+                <div class="feature">
+                    <span class="feature-icon">🚚</span>
+                    <span>Ücretsiz Kargo</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">⭐</span>
+                    <span>Kaliteli Ürünler</span>
+                </div>
+                <div class="feature">
+                    <span class="feature-icon">💝</span>
+                    <span>Özel İndirimler</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

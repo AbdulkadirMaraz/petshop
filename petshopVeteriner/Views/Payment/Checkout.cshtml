@@ -1,0 +1,21 @@
+﻿@model CustomerPetshop.Models.CheckoutVm
+
+
+<h2>Ödeme</h2>
+
+@if (!string.IsNullOrEmpty(Model?.Error))
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
+
+@if (!string.IsNullOrEmpty(Model?.CheckoutFormContent))
+{
+    <div id="iyzico-checkout-form">
+        @Html.Raw(Model.CheckoutFormContent)
+    </div>
+}
+else
+{
+    <p>Ödeme formu yüklenemedi.</p>
+}
+

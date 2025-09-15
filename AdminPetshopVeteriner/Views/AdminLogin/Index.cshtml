@@ -1,0 +1,67 @@
+﻿@model AdminPetshop.Models.RegisterViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Giriş - PetAdmin</title>
+    <link href="~/css/adminloginstyle.css" rel="stylesheet" />
+ 
+</head>
+<body>
+    <div class="floating-pets">
+        <div class="floating-pet">🐕</div>
+        <div class="floating-pet">🐱</div>
+        <div class="floating-pet">🐰</div>
+        <div class="floating-pet">🐹</div>
+        <div class="floating-pet">🦜</div>
+    </div>
+
+    <div class="background-pet">🐾</div>
+
+    <div class="login-container">
+        <div class="pet-icon">🐕‍🦺</div>
+
+        <div class="login-header">
+            <h1> Pawly Admin Giriş</h1>
+            <p>Evcil hayvan yönetim paneline hoş geldiniz</p>
+        </div>
+
+        <form class="login-form" method="post">
+            <div class="form-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" name="username" placeholder="Kullanıcı adınızı girin" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required>
+            </div>
+            <div>
+            <button type="submit" class="login-btn">
+                <span>Giriş Yap</span>
+            </button>
+            
+            </div>
+
+        </form>
+
+        <div class="forgot-password">
+            <a href="/AdminLogin/SingUp" class="link">Kayıt ol</a>
+        </div>
+
+        <div class="pet-decoration">🐾</div>
+    </div>
+
+    <div class="pets-corner">
+        <div class="corner-pet corner-pet-1">🐕</div>
+        <div class="corner-pet corner-pet-2">🐱</div>
+        <div class="corner-pet corner-pet-3">🐰</div>
+        <div class="corner-pet corner-pet-4">🐹</div>
+    </div>
+</body>
+</html>

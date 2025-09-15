@@ -1,0 +1,34 @@
+﻿@model List<EntityLayer.Concrete.Order>
+
+@{
+    ViewData["Title"] = "Sipariş Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sipariş Listesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Müşteri Id</th>
+            <th>Tarih</th>
+            <th>Toplam Tutar</th>
+            <th>Detay</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CustomerId</td>
+                <td>@item.OrderDate.ToShortDateString()</td>
+                <td>@item.TotalAmount ₺</td>
+                <td>
+                    <a href="/OrderItem/Index/@item.Id" class="btn btn-info">Sipariş Detayı</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

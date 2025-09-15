@@ -1,0 +1,383 @@
+﻿@using EntityLayer.Concrete
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from pawly-html.wpthemeverse.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Jun 2025 20:27:59 GMT -->
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="robots" content="max-image-preview:large">
+    <!-- Page Title -->
+    <title>Pawly - Template</title>
+    <!-- Favicon Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="~/petshop/pawly-html.wpthemeverse.com/images/favicon.png">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200~/petshop/pawly-html.wpthemeverse.com1000;1,200~/petshop/pawly-html.wpthemeverse.com1000&amp;display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com/">
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100~/petshop/pawly-html.wpthemeverse.com900;1,100~/petshop/pawly-html.wpthemeverse.com900&amp;display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/slicknav.min.css" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/swiper-bundle.min.css" rel="stylesheet" />
+    
+    <!-- Font Awesome Icon Css-->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/all.css" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/animate.css" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="~/petshop/pawly-html.wpthemeverse.com/css/magnific-popup.css">
+    <!-- Audio Css File -->
+    <link rel="stylesheet" href="~/petshop/pawly-html.wpthemeverse.com/css/plyr.css">
+    <!-- Main Custom Css -->
+    <link href="~/petshop/pawly-html.wpthemeverse.com/css/custom.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <!-- Header New Start -->
+    <header id="sisf-page-header" class="sisf-main-header sisf-standerd-header">
+        <div class="header-top sisf-skin--light">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 p-0">
+                        <div class="header_col">
+                            <div class="sisf-widget-holder sisf--left">
+                                <div id="sis_core_icon_list_item-3" class="widget widget_sis_core_icon_list_item sisf-top-bar-widget">
+                                    <div class="sisf-icon-list-item sisf-icon--icon-pack">
+                                        <a href="tel:206176232338" target="_self">
+                                            <span class="sisf-e-title-inner">
+                                                <span class="sisf-e-title-text"><img src="~/petshop/pawly-html.wpthemeverse.com/images/Header-call-icon.png" alt="Pawly"> Bizi Arayın: 545 7700531</span>
+                                            </span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="header-center-icons">
+                                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                            </div>
+                            <div class="mail-us me-1">
+                                <a href="mailto:info@pawly.com"><span class="sisf-e-title-text"><img src="~/petshop/pawly-html.wpthemeverse.com/images/home-mail-icon.png" alt="Pawly"> kadirmaraz376@gmail.com</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="sisf-page-header-inner" class="sisf-skin--light position-relative d-flex align-items-center">
+            <!-- Logo Start -->
+            <a class="navbar-brand sisf-header-logo-link mobile-none" href="/">
+                <img src="~/petshop/pawly-html.wpthemeverse.com/images/pawly_logo.png" alt="Logo">
+            </a>
+            <!-- Logo End -->
+            <!-- Logo Start -->
+            <a class="navbar-brand mobile-block" href="/">
+                <img src="~/petshop/pawly-html.wpthemeverse.com/images/pawly_logo_dark.png" alt="Logo">
+            </a>
+            <!-- Logo End -->
+            <div class="sisf-divided-header-right-wrapper d-flex justify-content-between align-items-center">
+                <nav class="navbar navbar-expand-lg">
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item submenu">
+                                    <a class="nav-link" href="/">AnaSayfa<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                </li>
+                                <li class="nav-item submenu">
+                               <a class="nav-link" href="/About/Index">Hakkımızda<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                </li>
+                                
+                               
+                                <li class="nav-item submenu">
+                                    <a class="nav-link" href="/CustomerProduct/Index">Alışveriş<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                    
+                                </li>
+                                <li class="nav-item submenu">
+                                <a class="nav-link" href="/Contact/Us">İletişim<i class="fas fa-chevron-down custom-toggle-icon px-3"></i></a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Main Menu End -->
+                </nav>
+                <div class="header-icon d-flex align-items-center">
+                    <div class="sis_core_woo_dropdown_cart me-3">
+                        <div class="sisf-dropdown-cart-inner">
+                            <a href="/CustomerCart/Index" class="sisf-m-opener">
+                                <span class="sisf-m-opener-icon">
+                                    <i class="fa-solid fa-cart-shopping"></i>
+                                </span>
+                           
+                        </div>
+                    </div>
+
+                    <div class="user-icon mx-3">
+                        <span class="sisf-shortcode sisf-m  sisf-icon-holder sisf-size--default sisf-layout--normal">
+
+                            <a href="@(SignInManager.IsSignedIn(User)
+                    ? Url.Action("Index","Profile")
+                    : Url.Action("Index","CustomerLogin"))"
+                               title="@(SignInManager.IsSignedIn(User) ? UserManager.GetUserName(User) : "Giriş")">
+                                <span class="sisf-icon-dripicons dripicons-user sisf-icon sisf-e">
+                                    <i class="fa-regular fa-user"></i>
+                                </span>
+                            </a>
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <form asp-controller="CustomerLogin" asp-action="Logout" method="post" style="display:inline">
+                                    @Html.AntiForgeryToken()
+                                    <button type="submit" title="Çıkış"
+                                            style=" color:white;background:none;border:0;padding:0;margin-left:6px;line-height:1;vertical-align:baseline;cursor:pointer;">
+                                        <i class="fa-solid fa-right-from-bracket"></i>
+                                    </button>
+                                </form>
+                            }
+                        </span>
+                    </div>
+
+
+
+
+                    <div class="sisf-icon-list-item ms-3">
+                        <div class="search-container">
+                            <input type="text" class="search-input" placeholder="Arama Yapın">
+                            <button class="search-btn">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-toggle"></div>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header New End -->
+    <!-- Hero Banner Start -->
+   @RenderBody()
+    <!-- Letest Blog SEction End -->
+    <!-- Footer Start -->
+    <footer class="main-footer mt-2">
+        <div id="sisf-page-footer-top-area-inner" class="footer-top-area-inner sisf-content-full-width">
+            <div class="container">
+                <div class="row  gallery-items page-gallery-box">
+                    <!-- Footer Gallery Start -->
+                    <div class="gallery-container">
+                        <div class="gallery-item single-center">
+                            <div class="wow fadeInUp">
+                                <a href="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-1.png">
+                                    <figure>
+                                        <img src="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-1.png" alt="Pawly">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                        <div class=" gallery-item single-center">
+                            <div class="wow fadeInUp mb-1">
+                                <a href="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-2.png">
+                                    <figure>
+                                        <img src="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-2.png" alt="Pawly">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                        <div class=" gallery-item single-center">
+                            <div class="wow fadeInUp mb-1">
+                                <a href="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-3.png">
+                                    <figure>
+                                        <img src="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-3.png" alt="Pawly">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-item single-center">
+                            <div class="wow fadeInUp">
+                                <a href="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-4.png">
+                                    <figure>
+                                        <img src="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-4.png" alt="Pawly">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="gallery-item single-center">
+                            <div class="wow fadeInUp">
+                                <a href="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-5.png">
+                                    <figure>
+                                        <img src="~/petshop/pawly-html.wpthemeverse.com/images/ft-gallery-5.png" alt="Pawly">
+                                    </figure>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Footer Gallery End -->
+                    <!-- Footer Subscribe Start -->
+                   
+
+
+                </div>
+                <div class="col-md-6 ms-auto me-auto">
+
+
+                    <h5 class="text-white text-center">
+                        Size özel teklifler ve güncellemeler için <br />
+                        <a class="btn btn-primary" href="/CustomerLogin/SingUp"> abone olun  </a>
+                    </h5>
+
+                </div>
+            </div>
+        </div>
+   
+        <div class="sisf-page-footer-middle-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-12">
+                        <div class="footer-logo">
+                            <a href="index.html">
+                                <img src="~/petshop/pawly-html.wpthemeverse.com/images/pawly_logo.png" alt="Pawly">
+                            </a>
+                        </div>
+                        <div class="text">
+                            <p>Pawly olarak kedi, köpek, kuş ve diğer evcil hayvanlar için en kaliteli mama, oyuncak, aksesuar ve bakım ürünlerini online sipariş imkânıyla sunuyoruz. Uygun fiyat, hızlı kargo ve güvenilir alışveriş avantajlarıyla evcil dostlarınızın ihtiyaçlarını kolayca karşılayın.</p>
+                        </div>
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                    <div class="col-lg-1 col-12">
+                        <!-- Links Start -->
+                        <div class="footer-links">
+                        </div>
+                        <!-- Links End -->
+                    </div>
+                    <div class="col-lg-3 col-12">
+                        <!-- Links Start -->
+                        <div class="footer-links">
+                            <h3>Linkler</h3>
+                            <ul>
+                                <li><a href="/About/Index">Hakkımızda</a></li>
+                                <li><a href="/CustomerProduct/Index">Alışveriş</a></li>
+                                <li><a href="/Profile/Index">Profile</a></li>
+                                <li><a href="/Contact/Us">İlteşim</a></li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+                    <div class="col-lg-1 col-12"> 
+                      
+                      <div class="footer-links">
+                       
+                        </div> 
+                        
+                     </div>
+                    <div class="col-lg-3 col-12">
+                        <!-- Footer Contact Details Start -->
+                        <div class="footer-contact">
+                            <h3>İletişim</h3>
+                            <div class="footer-contact-details">
+                                <!-- Footer Info Box Start -->
+                                <div class="footer-info-box">
+                                    <p>
+                                        İstanbul Kadıköy<br>
+                                        InfoTech Akedemi <br>
+                                       
+                                    </p>
+                                </div>
+                                <!-- Footer Info Box End -->
+                            </div>
+                            <p class="mt-3 mb-3">Tel:0545 770 05 31 </p>
+                            <p class="mb-0">infotech@pawly.com</p>
+                        </div>
+                        <!-- Footer Contact Details End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="sisf-page-footer-bottom-area">
+            <div class="container">
+                <!-- Footer Copyright Section Start -->
+                <div class="footer-copyright">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6 col-md-6">
+                            <!-- Footer Copyright Start -->
+                            <div class="footer-copyright-text">
+                                <p>Pawly. Tüm Hakları Saklıdır</p>
+                            </div>
+                            <!-- Footer Copyright End -->
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <!-- Footer Privacy Link Start -->
+                            <div class="footer-privacy-policy">
+                                <ul>
+                                    <li><a href="#">Gizlilik ve Güvenlik</a></li>
+                                </ul>
+                            </div>
+                            <!-- Footer Privacy Link End -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Footer Copyright Section End -->
+            </div>
+        </div>
+    </footer>
+    <!-- Footer End -->
+    <!-- Jquery Library File -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery-3.7.1.min.js"></script>
+    <!-- Bootstrap js file -->
+    
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/bootstrap.min.js"></script>
+    <!-- Validator js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/validator.min.js"></script>
+    <!-- SlickNav js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery.slicknav.js"></script>
+    <!-- Swiper js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/swiper-bundle.min.js"></script>
+    <!-- Counter js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery.waypoints.min.js"></script>
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery.counterup.min.js"></script>
+    <!-- Magnific js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery.magnific-popup.min.js"></script>
+    <!-- SmoothScroll -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/SmoothScroll.js"></script>
+    <!-- Parallax js -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/parallaxie.js"></script>
+    <!-- MagicCursor js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/gsap.min.js"></script>
+    <!-- Text Effect js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/SplitText.js"></script>
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/ScrollTrigger.min.js"></script>
+    <!-- YTPlayer js File -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/jquery.mb.YTPlayer.min.js"></script>
+    <!-- Audio js File -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/plyr.js"></script>
+    <!-- Wow js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/wow.js"></script>
+    <!-- Main Custom js file -->
+    <script src="~/petshop/pawly-html.wpthemeverse.com/js/function.js"></script>
+</body>
+
+<!-- Mirrored from pawly-html.wpthemeverse.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 26 Jun 2025 20:27:59 GMT -->
+</html>

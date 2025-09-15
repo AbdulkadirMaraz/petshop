@@ -1,0 +1,70 @@
+﻿@model AdminPetshop.Models.ViewModels.ProductViewModel
+
+
+@{
+    ViewData["Title"] = "Ürün Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4>Ürün Düzenle</h4>
+
+<form asp-action="EditProduct" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description"></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl"></label>
+        <input asp-for="ImageUrl" class="form-control" />
+        <span asp-validation-for="ImageUrl" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ImageUrl2"></label>
+        <input asp-for="ImageUrl2" class="form-control" />
+        <span asp-validation-for="ImageUrl2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl3"></label>
+        <input asp-for="ImageUrl3" class="form-control" />
+        <span asp-validation-for="ImageUrl3" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="ImageUrl4"></label>
+        <input asp-for="ImageUrl4" class="form-control" />
+        <span asp-validation-for="ImageUrl4" class="text-danger"></span>
+    </div>
+   
+
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Tags"></label>
+        <input asp-for="Tags" class="form-control" />
+        <span asp-validation-for="Tags" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="CategoryId"></label>
+        <select asp-for="CategoryId" asp-items="Model.CategoryOptions" class="form-control"></select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+</form>
+
+
+

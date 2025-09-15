@@ -1,0 +1,32 @@
+﻿@model List<AdminPetshop.Models.ViewModels.CartItemViewModel>
+
+@{
+    ViewData["Title"] = "Sepet İçerikleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sepet Listesi</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Sepet Id</th>
+            <th>Müşteri Id</th>
+            <th>Ürün Id</th>
+            <th>Ürün Adı</th>
+            <th>Adet</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.CustomerId</td>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

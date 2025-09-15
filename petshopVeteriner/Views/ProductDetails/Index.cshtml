@@ -1,0 +1,183 @@
+﻿@model CustomerPetshop.Models.ViewModels.ProductViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Section Start -->
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/inner-page-banner_img.png" alt="Pawly">
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid ">
+                <h1 class="sisf-m-title entry-title">Mağaza</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Banner Section End -->
+<!-- Page Section Start -->
+
+<div class="sisf-page-section section">
+    <div class="sisf-single">
+        <div class="container">
+            <div class="sisf-single-top">
+                <div class="row sisf-single-top-row align-items-center">
+                    <div class="col-md-2">
+                        <div class="gallery-section position-relative small-gallery">
+                            <div class="gallery-items page-gallery-box align-items-center">
+                                <div class="premium-gallery small-gallry">
+                                    <a href="@Model.ImageUrl">
+                                        <figure class="mb-0">
+                                            <img src=" @Model.ImageUrl" class="image-fluid" alt="Pawly">
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="premium-gallery small-gallry">
+                                    <a href="@Model.ImageUrl2">
+                                        <figure class="mb-0">
+                                            <img src="@Model.ImageUrl2" class="image-fluid" alt="Pawly">
+
+                                        </figure>
+                                    </a>
+                                </div>
+                                <div class="premium-gallery small-gallry">
+                                    <a href="@Model.ImageUrl3">
+                                        <figure class="mb-0">
+                                            <img src="@Model.ImageUrl3" class="image-fluid" alt="Pawly">
+
+                                        </figure>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="sisf-single-image">
+                            <div class="product-gallery">
+                                <div class="gallery-section position-relative product-main-gallery">
+                                    <div class="gallery-items page-gallery-box">
+                                        <div class="product-gallery">
+                                            <div class="wow fadeInUp">
+                                                <a href="@Model.ImageUrl4">
+                                                    <figure>
+                                                        <img src="@Model.ImageUrl4" class="image-fluid" alt="Pawly">
+                                                    </figure>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="single-product-summary">
+                            <div class="sisf-product-title-box">
+                                <h2 class="sisf-product-title">@Model.Name</h2>
+                            </div>
+
+                            <div class="price d-flex align-items-center">
+                                <span class="price-amount">
+                                    <span class="price-currencysymbol">₺</span>@Model.Price
+                                </span>
+                            </div>
+
+                            <div class="product-details-short-description mt-3">
+                                <p>@Model.Description</p>
+                            </div>
+                            <div class="sisf-product_cart mt-5">
+                                <!-- Sepete Ekle Formu -->
+                                <form asp-controller="CustomerCart" asp-action="AddToCart" method="post" class="w-100">
+                                    <input type="hidden" name="productId" value="@Model.Id" />
+                                    <div class="d-flex">
+                                        <div class="sisf-quantity-buttons quantity">
+                                            <input type="number" name="quantity" value="1" min="1" class="sisf-quantity-input" />
+                                        </div>
+                                        <div class="sisf-m-button text-center w-100">
+                                            <button onclick="alert('Sepete Eklendi')" type="submit" class="btn-default w-100">
+                                                <span>Sepete Ekle</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                               
+                                <form asp-controller="Order" asp-action="BuyNow" method="post" class="w-100 mt-3">
+                                    <input type="hidden" name="productId" value="@Model.Id" />
+                                    <input type="hidden" name="quantity" value="1" />
+                                    <div class="sisf-m-button text-center w-100">
+                                        
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="product_meta mt-4">
+
+                                <span class="tagged_as">
+                                    <span class="sisf-meta-label">Tags:</span>
+                                    <span class="sisf-meta-value"><a href="#">@Model.Tags</a></span>
+                                </span>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="related_products container">
+            <h2>İlgili Ürünler</h2>
+            <div class="sisf-product-list border-0 p-0 ">
+                <div class="row">
+                    @if (ViewBag.RelatedProducts != null)
+                    {
+                        var related = ViewBag.RelatedProducts as IEnumerable<EntityLayer.Concrete.Product>;
+
+                        <div class="row">
+                            @foreach (var product in related)
+                            {
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="product">
+                                        <div class="sisf-product-inner sisf-e-inner">
+                                            <!-- Product Image Start -->
+                                            <div class="sisf-product-image">
+                                                <!-- Ürün detay linki: id ile -->
+                                                <a asp-controller="ProductDetails" asp-action="Index" asp-route-id="@product.Id">
+                                                    <figure>
+                                                        <img style="height:350px" src="@product.ImageUrl" class="image-fluid" alt="@product.Name">
+                                                    </figure>
+                                                </a>
+
+                                                <div class="heart-icon">
+                                                    <a href="#"><i class="fa-regular fa-heart"></i></a>
+                                                </div>
+
+
+                                                <form asp-controller="CustomerCart" asp-action="AddToCart" method="post" class="w-100">
+                                                    <input type="hidden" name="productId" value="@product.Id" />
+                                                    <div class="d-flex">
+                                                        <div class="sisf-m-button text-center w-100">
+                                                            <button onclick="alert('Sepete Eklendi')" type="submit" class="btn-default w-100">
+                                                                <span>Sepete Ekle</span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>

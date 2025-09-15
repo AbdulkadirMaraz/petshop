@@ -1,0 +1,120 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewData["Title"] = "İletişim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Section Start -->
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/inner-page-banner_img.png" alt="Pawly" />
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid">
+                <h1 class="sisf-m-title entry-title">İletişim</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Section End -->
+<!-- Owner Paradise Section Start -->
+@await Component.InvokeAsync("_OnwerParadisePartial")
+<!-- Owner Paradise Section End -->
+<!-- Contact Section Start -->
+<div class="contact-section section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-12">
+                <div class="sisf-sis-section-title text-center section-title wow zoomIn">
+                    <h2 class="sisf-m-title">
+                        Yardımcı olmak için <span class="sisf-e-colored">buradayız.</span> <i class="fa fa-paw"></i>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="sisf-contact-background">
+            <div class="row align-items-end">
+
+                <!-- Left: Contact Info -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <div class="sisf-shortcode sisf-m contact-column d-flex align-items-center wow fadeInUp">
+                        <div class="sisf-m-icon-wrapper me-4">
+                            <div class="sisf-m-icon-holder">
+                                <span><i class="fa-solid fa-phone"></i></span>
+                            </div>
+                        </div>
+                        <div class="sisf-m-content">
+                            <h5 class="sisf-m-title mb-2">
+                                <span class="sisf-m-title-text text-white">Bize Ulaşın</span>
+                            </h5>
+                            <div class="sisf-m-text">
+                                <p class="mb-0 text-white">0545 770 05 31</p>
+                                <p class="mb-0 text-white">info@petshop.com</p>
+                                <p class="mb-0 text-white">Hafta içi 09:00 – 18:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Contact Form -->
+                <div class="col-md-6">
+                    <div class="contact-here-form wow fadeInRight">
+                        <div class="form-heading">
+                            <h5 class="heading">
+                                Sorularınız mı var veya yardıma mı ihtiyacınız var?<br />
+                                Yardımcı olmak için buradayız!
+                            </h5>
+                        </div>
+             
+                        <div class="col-md-12 contact-middle">
+                          
+                            @using (Html.BeginForm("SendMessage", "Contact", FormMethod.Post))
+                            {
+                                <div class="form-agileinfo">
+                                    <p>Adınız Soyadınız</p>
+                                    <input type="text" asp-for="Name" placeholder="Ad soyad" required="" />
+                                    <p>Mail Adresiniz</p>
+                                    <input type="email" asp-for="Mail" placeholder="Mail" required="" />
+                                </div>
+                                <div class="form-agileits-w3layouts">
+                                    <p>Mesajınız</p>
+                                    <textarea asp-for="Message" placeholder="mesaj..." required=""></textarea>
+                                    <input type="submit" value="Mesajı Gönder">
+                                </div>
+                                <div class="clearfix"></div>
+                            }
+                        </div>
+                        <div class="paw-icon float">
+                            <span><i class="fa fa-paw"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /row -->
+        </div><!-- /sisf-contact-background -->
+
+    </div>
+</div>
+<!-- Contact Section End -->
+<!-- Location Map Section Start -->
+<div class="location-map">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12 p-0">
+                <div class="contact-map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d317836.5861980763!2d-0.042579!3d51.511412!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sus!4v1742300083603!5m2!1sen!2sus"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Location Map Section End -->
+}

@@ -1,0 +1,51 @@
+﻿@model EntityLayer.Concrete.Customer
+@{
+    ViewData["Title"] = "AddCustomer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Müşteri Ekle</h1>
+<form asp-action="AddCustomer" method="post">
+    <div class="form-group">
+        <span asp-validation-for="FullName" class="text-danger"></span>
+        @Html.Label("İsim Soyisim")
+     
+        <input type="text" name="FullName" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Email" class="text-danger"></span>
+        @Html.Label("Email")
+     
+        <input type="text" name="Email" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+        @Html.Label("Telefon Numarası")
+       
+        <input type="phone" name="Phone" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <span  class="text-danger"></span>
+        @Html.Label("Adres")
+
+        <input type="Text" name="Adres" class="form-control" />
+
+    </div>
+    <div class="form-group">
+        <span asp-validation-for="Phone" class="text-danger"></span>
+        @Html.Label("Admin")
+
+        <input type="checkbox" name="Admin" class="form-control" />
+
+    </div>
+
+
+
+
+
+    <button class="btn btn-outline-info">Yeni Müşteri Ekle</button>
+</form>
+

@@ -1,0 +1,50 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+@await Html.PartialAsync("~/Views/AdminPartials/PartialHead.cshtml")
+
+<body>
+    <div class="container-scroller">
+     
+        @await Html.PartialAsync("~/Views/AdminPartials/PartialNavbar.cshtml")
+        <!-- partial -->
+        <div class="container-fluid page-body-wrapper">
+
+            @await Html.PartialAsync("~/Views/AdminPartials/PartialSidebar.cshtml")
+            <!-- page-body-wrapper ends -->
+            <div class="main-panel">
+                <div class="content-wrapper">
+                    <div class="row">
+                        <div class="col-12 grid-margin stretch-card">
+                            <div class="card">
+                                <div class="card-body">
+                                    @RenderBody()
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              
+                <footer class="footer">
+                    <div class="d-sm-flex justify-content-center justify-content-sm-between">
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Gizlilik © <a href="https://www.bootstrapdash.com/" target="_blank">bootstrap.com </a>@DateTime.Now</span>
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Güvenlik <a href="https://www.bootstrapdash.com/" target="_blank">Tüm Hakları Saklıdır </a> </span>
+                    </div>
+                </footer>
+                <!-- partial -->
+            </div>
+        </div>
+    </div>
+    <!-- container-scroller -->
+    <!-- plugins:js -->
+    @await Html.PartialAsync("~/Views/AdminPartials/PartialScript.cshtml")
+
+</body>
+
+</html>
+

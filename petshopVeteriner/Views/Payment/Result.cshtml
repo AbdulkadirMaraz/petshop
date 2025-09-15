@@ -1,0 +1,26 @@
+﻿@model CustomerPetshop.Models.ResultVm
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+<h2>Ödeme Sonucu</h2>
+
+@if (!string.IsNullOrEmpty(Model?.Error))
+{
+    <div class="alert alert-danger">@Model.Error</div>
+}
+
+@if (Model?.Data?.PaymentStatus == "SUCCESS")
+{
+    <div class="alert alert-success">
+        Ödeme başarılı! Tutar: @Model.Data.PaidPrice — PaymentId: @Model.Data.PaymentId
+        <br />
+        <a class="btn btn-outline-primary" href="/">Anasayfa</a>
+    </div>
+}
+else
+{
+    <div class="alert alert-warning">
+        Ödeme başarısız/iptal. Mesaj: @Model?.Data?.ErrorMessage
+        <a class="btn btn-outline-primary" href="/">Anasayfa</a>
+    </div>
+}
+

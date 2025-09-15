@@ -1,0 +1,498 @@
+﻿/* Reset ve Temel Stiller */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Arka Plan Evcil Hayvan */
+.background-pet {
+    position: absolute;
+    right: -150px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.08;
+    font-size: 500px;
+    color: white;
+    z-index: 1;
+    animation: float 8s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-60%) rotate(10deg);
+    }
+}
+
+/* Yüzen Evcil Hayvanlar */
+.floating-pets {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.floating-pet {
+    position: absolute;
+    font-size: 35px;
+    opacity: 0.15;
+    animation: floatAround 20s linear infinite;
+}
+
+    .floating-pet:nth-child(1) {
+        top: 15%;
+        left: 8%;
+        animation-delay: 0s;
+    }
+
+    .floating-pet:nth-child(2) {
+        top: 70%;
+        left: 5%;
+        animation-delay: 4s;
+    }
+
+    .floating-pet:nth-child(3) {
+        top: 25%;
+        right: 10%;
+        animation-delay: 8s;
+    }
+
+    .floating-pet:nth-child(4) {
+        top: 80%;
+        right: 20%;
+        animation-delay: 12s;
+    }
+
+    .floating-pet:nth-child(5) {
+        top: 45%;
+        left: 15%;
+        animation-delay: 16s;
+    }
+
+@keyframes floatAround {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.15;
+    }
+
+    25% {
+        transform: translateY(-30px) rotate(90deg);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(15px) rotate(180deg);
+        opacity: 0.15;
+    }
+
+    75% {
+        transform: translateY(-15px) rotate(270deg);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: translateY(0px) rotate(360deg);
+        opacity: 0.15;
+    }
+}
+
+/* Köşe Evcil Hayvanları */
+.pets-corner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corner-pet {
+    position: absolute;
+    font-size: 25px;
+    opacity: 0.1;
+}
+
+.corner-pet-1 {
+    top: 20px;
+    left: 20px;
+    animation: wiggle 4s ease-in-out infinite;
+}
+
+.corner-pet-2 {
+    top: 20px;
+    right: 20px;
+    animation: wiggle 4s ease-in-out infinite 1s;
+}
+
+.corner-pet-3 {
+    bottom: 20px;
+    left: 20px;
+    animation: wiggle 4s ease-in-out infinite 2s;
+}
+
+.corner-pet-4 {
+    bottom: 20px;
+    right: 20px;
+    animation: wiggle 4s ease-in-out infinite 3s;
+}
+
+@keyframes wiggle {
+    0%, 100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(10deg) scale(1.1);
+    }
+
+    50% {
+        transform: rotate(-5deg) scale(0.9);
+    }
+
+    75% {
+        transform: rotate(5deg) scale(1.05);
+    }
+}
+
+/* Login Container */
+.login-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255, 255, 255, 0.3);
+    padding: 50px;
+    width: 100%;
+    max-width: 450px;
+    position: relative;
+    z-index: 2;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+    .login-container:hover {
+        transform: translateY(-5px);
+    }
+
+/* Pet Icon */
+.pet-icon {
+    text-align: center;
+    margin-bottom: 35px;
+    font-size: 80px;
+    animation: bounce 3s infinite;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+    .pet-icon:hover {
+        transform: scale(1.1);
+    }
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-15px);
+    }
+
+    60% {
+        transform: translateY(-8px);
+    }
+}
+
+/* Login Header */
+.login-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+    .login-header h1 {
+        color: #333;
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .login-header p {
+        color: #666;
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+/* Form Styles */
+.login-form {
+    width: 100%;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+    .form-group label {
+        display: block;
+        color: #555;
+        font-weight: 600;
+        margin-bottom: 10px;
+        font-size: 15px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 18px 25px;
+        border: 2px solid #e1e8ed;
+        border-radius: 15px;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+    }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+            transform: translateY(-3px);
+            background: white;
+        }
+
+        .form-group input:hover {
+            border-color: #c1c9d2;
+            transform: translateY(-1px);
+        }
+
+/* Form Options */
+.form-options {
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    user-select: none;
+}
+
+    .checkbox-container input {
+        display: none;
+    }
+
+.checkmark {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #e1e8ed;
+    border-radius: 4px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container input:checked + .checkmark {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-color: #667eea;
+}
+
+    .checkbox-container input:checked + .checkmark::after {
+        content: '✓';
+        position: absolute;
+        color: white;
+        font-size: 12px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+/* Login Button */
+.login-btn {
+    width: 100%;
+    padding: 18px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border: none;
+    border-radius: 15px;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+    .login-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+    }
+
+    .login-btn:active {
+        transform: translateY(-1px);
+    }
+
+    .login-btn span {
+        position: relative;
+        z-index: 1;
+    }
+
+    .login-btn::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        transition: left 0.5s;
+    }
+
+    .login-btn:hover::before {
+        left: 100%;
+    }
+
+/* Forgot Password */
+.forgot-password {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.link {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+    .link:hover {
+        color: #764ba2;
+    }
+
+    .link::after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -2px;
+        left: 50%;
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .link:hover::after {
+        width: 100%;
+    }
+
+/* Pet Decoration */
+.pet-decoration {
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+    font-size: 28px;
+    opacity: 0.3;
+    animation: spin 8s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20px;
+        padding: 40px 30px;
+        max-width: 90%;
+    }
+
+    .background-pet {
+        font-size: 300px;
+        right: -100px;
+    }
+
+    .floating-pet {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        padding: 35px 25px;
+    }
+
+    .pet-icon {
+        font-size: 60px;
+    }
+
+    .login-header h1 {
+        font-size: 26px;
+    }
+
+    .login-header p {
+        font-size: 14px;
+    }
+
+    .background-pet {
+        font-size: 200px;
+    }
+
+    .corner-pet {
+        font-size: 20px;
+    }
+}
+
+/* Ekstra Animasyonlar */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+}
+
+.floating-pet:nth-child(odd) {
+    animation: floatAround 20s linear infinite, pulse 4s ease-in-out infinite;
+}
+
+.floating-pet:nth-child(even) {
+    animation: floatAround 25s linear infinite reverse, pulse 3s ease-in-out infinite;
+}

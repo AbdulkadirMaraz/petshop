@@ -1,0 +1,49 @@
+﻿@model IEnumerable<EntityLayer.Concrete.ApplicationUser>
+@{
+    ViewData["Title"] = "Kullanıcılar (AspNetUsers)";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">@TempData["Error"]</div>
+}
+
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            
+            <th>Kullanıcı Adı</th>
+            <th>Email</th>
+            <th>Telefon Numarası</th>
+            <th>Adres</th>
+            <th>Admin mi?</th>
+            <th style="width:180px;"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var u in Model)
+        {
+            <tr>
+                
+                <td>@u.UserName</td>
+                <td>@u.Email</td>
+                <td>@u.PhoneNumber</td>
+                <td>@u.Address</td>
+                <td>@(u.IsAdmin ? "Evet" : "Hayır")</td>
+                
+                <td><a href="/Customer/EditCustomer/@u.Id" class="btn btn-outline-success">Düzenle
+                    </a>
+                    </td>
+                <td>
+                    <a href="/Customer/DeleteCustomer/@u.Id" class="btn btn-outline-danger">Sil</a>
+                </td>
+                
+
+
+            </tr>
+        }
+    </tbody>
+</table>

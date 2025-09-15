@@ -1,0 +1,88 @@
+﻿ @model List<CustomerPetshop.Models.ViewModels.ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Banner Section Start -->
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/shop_hero_img.png" alt="Pawly">
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid ">
+                <h1 class="sisf-m-title entry-title">Alışveriş Listesi</h1>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Section End -->
+<!-- Page-Section Start -->
+<div class="sisf-page-section section">
+    <div class="sisf-grid sisf-layout--template">
+        <div class="sisf-grid-inner container">
+            <!-- Product List Start -->
+            <div class="sisf-product-list border-0 p-0">
+                <div class="container">
+                    <div class="row">
+                        @foreach (var item in Model)
+                        {
+                            <div class="col-lg-4 col-md-6">
+                                <div class="product">
+                                    <div class="sisf-product-inner sisf-e-inner">
+                                        <!-- Product Image Start -->
+                                        <div class="sisf-product-image">
+                                            <a href="/ProductDetails/Index/@item.Id">
+                                                <figure >
+                                                    <img style="height:350px" src="@item.ImageUrl" class="image-fluid" alt="Pawly">
+                                                </figure>
+                                            </a>
+                                            <div class="heart-icon">
+                                                <a href="#">
+                                                    <i class="fa-regular fa-heart"></i>
+                                                </a>
+                                            </div>
+                                            <div class="sisf-m-button cart-icon-button text-center">
+                                                <a href="/ProductDetails/Index/@item.Id" class="product_type_simple btn-default sisf-layout-filled add_to_cart_button">
+                                                    <span><i class="fa-solid fa-cart-shopping me-2"></i>Ürünü İncele</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <!-- Product Image End -->
+                                        <!-- Product Content Start -->
+                                        <div class="sisf-e-product-content text-center">
+                                            <div class="sisf-e-ratings sisf-m">
+                                                <div class="sisf-m-inner">
+                                                    <div class="sisf-m-star sisf--initial">
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                        <i class="fa-solid fa-star"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <h5 class="sisf-e-product-title sisf-e-title entry-title my-2">
+                                                <a class="sisf-e-product-title-link shop-product" href="/ProductDetails/Index">@item.Name</a>
+                                            </h5>
+                                            <div class="sisf-product-price price">
+                                                <span class="product-price-amount"><sup class="product-price-currencysymbol">₺</sup>@item.Price</span>
+                                            </div>
+                                        </div>
+                                        <!-- Product Content End -->
+                                    </div>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                </div>
+            </div>
+            <!-- Product List End -->
+        </div>
+    </div>
+</div>
+<!-- Page-Section End -->

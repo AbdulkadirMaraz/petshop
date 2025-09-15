@@ -1,0 +1,46 @@
+﻿@model EntityLayer.Concrete.ApplicationUser
+@{
+    ViewData["Title"] = "Kullanıcı Düzenle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanıcı Düzenle</h2>
+
+<form asp-action="EditCustomer" method="post">
+    @Html.AntiForgeryToken() 
+
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="UserName" class="form-label">Kullanıcı Adı</label>
+        <input asp-for="UserName" class="form-control" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Mail</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="PhoneNumber" class="form-label">Telefon No</label>
+        <input type="tel" asp-for="PhoneNumber" class="form-control" />
+        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Address" class="form-label">Adres</label>
+        <input asp-for="Address" class="form-control" />
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="IsAdmin" class="form-check-input" />
+        <label asp-for="IsAdmin" class="form-check-label">Admin mi?</label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Kaydet</button>
+    <a asp-action="Index" class="btn btn-secondary">Geri</a>
+
+    <div asp-validation-summary="All" class="text-danger mt-3"></div>
+</form>

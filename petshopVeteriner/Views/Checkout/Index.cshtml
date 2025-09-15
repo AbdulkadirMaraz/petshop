@@ -1,0 +1,112 @@
+﻿
+
+@model CustomerPetshop.Models.ViewModels.CheckoutViewModel
+@using CustomerPetshop.Extensions
+@using CustomerPetshop.Models
+
+@{
+    ViewData["Title"] = "Sipariş Tamamlama";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+   
+    var cart = Context.Session.GetObjectFromJson<List<CartItemDto>>("Cart") ?? new List<CartItemDto>();
+}
+
+
+<link href="~/css/checkoutstyle.css" rel="stylesheet" />
+
+
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/inner-page-banner_img.png" alt="Pawly">
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid ">
+                <h1 class="sisf-m-title entry-title">Sipariş Tamamlama</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form asp-action="Index" method="post" class="row g-3">
+    <div class="col-md-6">
+        <label class="form-label">Ad Soyad</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">E-posta</label>
+        <input asp-for="Email" class="form-control" />
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <div class="col-12">
+        <label class="form-label">Adres</label>
+        <textarea asp-for="Address" class="form-control" rows="3"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Şehir</label>
+        <input asp-for="City" class="form-control" />
+        <span asp-validation-for="City" class="text-danger"></span>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label">Posta Kodu</label>
+        <input asp-for="PostalCode" class="form-control" />
+        <span asp-validation-for="PostalCode" class="text-danger"></span>
+    </div>
+
+    <div class="col-12 mt-4">
+        <h4>Sepetiniz</h4>
+        @if (!cart.Any())
+        {
+            <p>Sepetiniz boş.</p>
+        }
+        else
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Adet</th>
+                        <th>Birim Fiyat</th>
+                        <th>Toplam</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in cart)
+                    {
+                        <tr>
+                            <td>@item.Name</td>
+                            <td>@item.Quantity</td>
+                            <td>@item.Price.ToString("C")</td>
+                            <td>@(item.Price * item.Quantity)</td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th colspan="3">Genel Toplam</th>
+                        <th>@cart.Sum(x => x.Price * x.Quantity).ToString("C")</th>
+                    </tr>
+                </tfoot>
+            </table>
+        }
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-success">Siparişi Tamamla</button>
+    </div>
+    
+</form>
+
+
+
+
+
+

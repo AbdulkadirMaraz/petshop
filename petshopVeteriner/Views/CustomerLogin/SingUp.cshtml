@@ -1,0 +1,122 @@
+﻿@model CustomerPetshop.Models.RegisterViewModel
+
+@{
+    ViewData["Title"] = "SingUp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="sisf-banner position-relative">
+    <div class="banner-img">
+        <figure>
+            <img src="~/petshop/pawly-html.wpthemeverse.com/images/inner-page-banner_img.png" />
+        </figure>
+    </div>
+    <div class="sisf-page-title sisf-m sisf-title--standard sisf-alignment--center">
+        <div class="sisf-m-inner">
+            <div class="sisf-m-content sisf-content-grid ">
+                <h1 class="sisf-m-title entry-title">Hesap Oluştur</h1>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="sisf-page-section section">
+    <div class="sisf-grid sisf-layout--template">
+        <div class="sisf-grid-inner container">
+            <div class="sisf-myaccount-sec">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-9">
+                        <div class="myaccount-content">
+
+                            
+                            <form class="billing-form" asp-action="SingUp" asp-controller="CustomerLogin" method="post">
+                                @Html.AntiForgeryToken()
+
+                                <div class="sisf-billing-fields mb-3">
+                                    <div class="billing-field-wrapper">
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="UserName">Kullanıcı Adı<span class="required">*</span></label>
+                                                    <input asp-for="UserName" class="input-text" />
+                                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="Mail">Email Adresi<span class="required">*</span></label>
+                                                    <input asp-for="Mail" type="email" class="input-text" />
+                                                    <span asp-validation-for="Mail" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="Address">Adres<span class="required">*</span></label>
+                                                    <input asp-for="Address" class="input-text" />
+                                                    <span asp-validation-for="Address" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="PhoneNumber">Telefon Numarası<span class="required">*</span></label>
+                                                    <input asp-for="PhoneNumber" type="tel" class="input-text" />
+                                                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="Password">Şifre</label>
+                                                    <input asp-for="Password" type="password" class="input-text" />
+                                                    <span asp-validation-for="Password" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <label asp-for="PasswordConfirm">Şifre tekrarı</label>
+                                                    <input asp-for="PasswordConfirm" type="password" class="input-text" />
+                                                    <span asp-validation-for="PasswordConfirm" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- GENEL HATA MESAJLARI İÇİN -->
+                                        <div asp-validation-summary="All" class="text-danger mt-3"></div>
+
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-row">
+                                                    <button type="submit" class="button sisf-button sisf-layout--outlined btn-big text-uppercase">
+                                                        Kayıt Ol
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

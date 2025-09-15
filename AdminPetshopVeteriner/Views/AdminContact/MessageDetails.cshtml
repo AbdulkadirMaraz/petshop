@@ -1,0 +1,35 @@
+﻿@model EntityLayer.Concrete.Contact
+@{
+    ViewData["Title"] = "MessageDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<h1> Mesaj Detayları Sayfası</h1>
+
+<form method="post">
+    <div class="form-group">
+        @Html.HiddenFor(x => x.ContactID)
+
+        @Html.Label("Ad Soyad")
+        <input type="text" asp-for="Name" class="form-control" />
+    </div>
+    <div class="form-group">
+
+        @Html.Label("Mail Adresi")
+        <input type="text" asp-for="Mail" class="form-control" />
+    </div>
+    <div class="form-group">
+
+        @Html.Label("Tarih")
+        <input type="text" asp-for="Date" class="form-control" />
+    </div>
+    <div class="form-group">
+
+        <label>Mesaj Detayı</label>
+        <textarea class="form-control" cols="5" rows="20" asp-for="Message"></textarea>
+    </div>
+
+    <a href="/AdminContact/Index" class="btn btn-outline-info">Mesaj Listesine Dön</a>
+</form>
+

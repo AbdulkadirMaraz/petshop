@@ -1,0 +1,21 @@
+HTTrack3.49-2+htsswf+htsjava launched on Thu, 26 Jun 2025 23:25:22 at https://pawly-html.wpthemeverse.com/landing.html +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "tr, en, *" https://pawly-html.wpthemeverse.com/landing.html -O1 "D:\Oguz Hoca ders Tekrar\Temalar\petshop 1" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/arrow-orange.svg (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/arrow-white.svg (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/hero-bg.jpg (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/home3-mastering_img.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/product-share-icon.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/my_account_banner.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/quote-bg.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/blog-author-bg.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/landing-25_new.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+23:27:59	Error: 	"Not Found" (404) at link https://pawly-html.wpthemeverse.com/images/crafting_website_bg1.png (from https://pawly-html.wpthemeverse.com/css/custom.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 40 seconds : 419 links scanned, 408 files written (54577329 bytes overall) [51363116 bytes received at 321019 bytes/sec], 53632139 bytes transferred using HTTP compression in 411 files, ratio 93%, 83.8 requests per connection
+(10 errors, 0 warnings, 0 messages)
